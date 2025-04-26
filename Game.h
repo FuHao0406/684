@@ -1,95 +1,95 @@
-// Game.h : ÓÎÏ·ÀàÍ·ÎÄ¼ş
+// Game.h : æ¸¸æˆç±»å¤´æ–‡ä»¶
 
-#pragma once		// ·ÀÖ¹¸ÃÍ·ÎÄ¼ş±»¶à´Îµ÷ÓÃ
+#pragma once		// é˜²æ­¢è¯¥å¤´æ–‡ä»¶è¢«å¤šæ¬¡è°ƒç”¨2
 
-#include "Maze.h"	// ³õÊ¼»¯Í·ÎÄ¼ş
+#include "Maze.h"	// åˆå§‹åŒ–å¤´æ–‡ä»¶
 
-// ÓÎÏ·Àà
+// æ¸¸æˆç±»
 
-// Ë¢ĞÂ½çÃæ¡¢·ÅÖÃ°´Å¥¡¢Êä³ö¶Ô»°¿òÀà
+// åˆ·æ–°ç•Œé¢ã€æ”¾ç½®æŒ‰é’®ã€è¾“å‡ºå¯¹è¯æ¡†ç±»
 class COther
 {
 public:
 	COther() {}
 	~COther() {}
 	
-	void putAll();																											// »æÖÆ±³¾°
-	bool button(int a, int b, wchar_t str[]);																				// ·ÅÖÃ°´Å¥
-	int putMessageBox(int x, int y, int wight, int hight, wchar_t title[], wchar_t * text[], int g_num, int var = MY_OK);	// Êä³ö¶Ô»°¿ò
+	void putAll();																											// ç»˜åˆ¶èƒŒæ™¯
+	bool button(int a, int b, wchar_t str[]);																				// æ”¾ç½®æŒ‰é’®
+	int putMessageBox(int x, int y, int wight, int hight, wchar_t title[], wchar_t * text[], int g_num, int var = MY_OK);	// è¾“å‡ºå¯¹è¯æ¡†
 };
 
-// Ã°ÏÕÄ£Ê½Àà
+// å†’é™©æ¨¡å¼ç±»
 class CAdventrue
 {
 public:
-	int pass, all_pass;												// ¹Ø¿¨ºÍ×Ü¹Ø¿¨
-	int to_x, to_y, x, y, room[150][150], n, m;						// ÖÕµã×ø±ê¡¢ÈÎÎñ×ø±ê¡¢ÃÔ¹¬µØÍ¼´¢´æºÍÃÔ¹¬´óĞ¡
-	int tot, reg[2600][2600], feg[2600][2600], flag[3][2600];	// Í¼½Úµã×ÜÊı¡¢ÁÚ½Ó¾ØÕó¡¢¸¨ÖúÁÚ½Ó¾ØÕóºÍÃÔ¹¬ÖĞ×ø±êÓëÍ¼½Úµã±àºÅ¹ØÏµ¼ÇÂ¼
-	bool fmap[150][150], tip[2600];								// ¸¨ÖúÃÔ¹¬µØÍ¼¡¢Í¼½ÚµãÊÇ·ñ×ß¹ı¼ÇÂ¼
+	int pass, all_pass;												// å…³å¡å’Œæ€»å…³å¡
+	int to_x, to_y, x, y, room[150][150], n, m;						// ç»ˆç‚¹åæ ‡ã€ä»»åŠ¡åæ ‡ã€è¿·å®«åœ°å›¾å‚¨å­˜å’Œè¿·å®«å¤§å°
+	int tot, reg[2600][2600], feg[2600][2600], flag[3][2600];	// å›¾èŠ‚ç‚¹æ€»æ•°ã€é‚»æ¥çŸ©é˜µã€è¾…åŠ©é‚»æ¥çŸ©é˜µå’Œè¿·å®«ä¸­åæ ‡ä¸å›¾èŠ‚ç‚¹ç¼–å·å…³ç³»è®°å½•
+	bool fmap[150][150], tip[2600];								// è¾…åŠ©è¿·å®«åœ°å›¾ã€å›¾èŠ‚ç‚¹æ˜¯å¦èµ°è¿‡è®°å½•
 	
 	CAdventrue() {}
 	~CAdventrue() {}
 	
-	virtual void game();									// ¸÷Ä£Ê½£¨ÏµÁĞ£©ºËĞÄ
+	virtual void game();									// å„æ¨¡å¼ï¼ˆç³»åˆ—ï¼‰æ ¸å¿ƒ
 
-	bool winPut();											// Í¨¹ıÒ»¹Ø¿¨½çÃæ
-	void gameOver();										// Í¨¹ıÈ«¹Ø¿¨½çÃæ
-	void man_Move();										// ÈËÎïÒÆ¶¯´¦Àí
-	void clear();											// Çå¿ÕÊı¾İ´¦Àí
+	bool winPut();											// é€šè¿‡ä¸€å…³å¡ç•Œé¢
+	void gameOver();										// é€šè¿‡å…¨å…³å¡ç•Œé¢
+	void man_Move();										// äººç‰©ç§»åŠ¨å¤„ç†
+	void clear();											// æ¸…ç©ºæ•°æ®å¤„ç†
 
-	int search(int x, int y);								// DFS ËÑË÷Éú³ÉÃÔ¹¬ºËĞÄ
-	int dfs(int step);										// Í¼ÂÛ DFS ËÑË÷Éú³ÉÃÔ¹¬ºËĞÄ
-	int my_line(int x_1, int y_1, int x_2, int y_2);		// ¸¨Öúº¯Êı
+	int search(int x, int y);								// DFS æœç´¢ç”Ÿæˆè¿·å®«æ ¸å¿ƒ
+	int dfs(int step);										// å›¾è®º DFS æœç´¢ç”Ÿæˆè¿·å®«æ ¸å¿ƒ
+	int my_line(int x_1, int y_1, int x_2, int y_2);		// è¾…åŠ©å‡½æ•°
 };
 
-// Ã°ÏÕÄ£Ê½-É­ÁÖÏµÁĞÀà
+// å†’é™©æ¨¡å¼-æ£®æ—ç³»åˆ—ç±»
 class CForest : public CAdventrue
 {
 public:
 	CForest() {}
 	~CForest() {}
 	
-	void game();	// ¸÷Ä£Ê½£¨ÏµÁĞ£©ºËĞÄ
+	void game();	// å„æ¨¡å¼ï¼ˆç³»åˆ—ï¼‰æ ¸å¿ƒ
 
 private:
-	void prim();	// Prim Ëæ»úÉú³ÉÃÔ¹¬
-	void putRoom();	// »æÖÆ½çÃæ
+	void prim();	// Prim éšæœºç”Ÿæˆè¿·å®«
+	void putRoom();	// ç»˜åˆ¶ç•Œé¢
 };
 
-// Ã°ÏÕÄ£Ê½-µØÀÎÏµÁĞÀà
+// å†’é™©æ¨¡å¼-åœ°ç‰¢ç³»åˆ—ç±»
 class CDungeon : public CAdventrue
 {
 public:
 	CDungeon() {}
 	~CDungeon() {}
 	
-	void game();	// ¸÷Ä£Ê½£¨ÏµÁĞ£©ºËĞÄ
+	void game();	// å„æ¨¡å¼ï¼ˆç³»åˆ—ï¼‰æ ¸å¿ƒ
 
 private:
-	void deepFS();	// Í¼ÂÛ DFS Ëæ»úÉú³ÉÃÔ¹¬
-	void putRoom(); // »æÖÆ½çÃæ
+	void deepFS();	// å›¾è®º DFS éšæœºç”Ÿæˆè¿·å®«
+	void putRoom(); // ç»˜åˆ¶ç•Œé¢
 };
 
-// Ã°ÏÕÄ£Ê½-µØÓüÏµÁĞÀà
+// å†’é™©æ¨¡å¼-åœ°ç‹±ç³»åˆ—ç±»
 class CInfernal : public CAdventrue
 {
 public:
 	CInfernal() {}
 	~CInfernal() {}
 	
-	void game();	// ¸÷Ä£Ê½£¨ÏµÁĞ£©ºËĞÄ
+	void game();	// å„æ¨¡å¼ï¼ˆç³»åˆ—ï¼‰æ ¸å¿ƒ
 
 private:
-	void myKLS();	// ±©Á¦ DFS Ëæ»úÉú³ÉÃÔ¹¬
-	void putRoom(); // »æÖÆ½çÃæ
+	void myKLS();	// æš´åŠ› DFS éšæœºç”Ÿæˆè¿·å®«
+	void putRoom(); // ç»˜åˆ¶ç•Œé¢
 };
 
-// °ïÖúĞÅÏ¢Àà
+// å¸®åŠ©ä¿¡æ¯ç±»
 class CHelp
 {
 public:
 	CHelp() {}
 	~CHelp() {}
 	
-	void put();		// »æÖÆ½çÃæ
+	void put();		// ç»˜åˆ¶ç•Œé¢
 };
