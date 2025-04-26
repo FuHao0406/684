@@ -16,5 +16,5 @@ int main()
 	bed = NULL;
 
 	closegraph();
-	return 0;							// 游戏结束
+	return 0;							// 游戏结束付
 }
