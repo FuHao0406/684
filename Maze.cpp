@@ -16,5 +16,6 @@ int main()
 	bed = NULL;
 
 	closegraph();
-	return 0;							// 游戏结束付
+	return 0;							// 游戏结束
+//第一次修改
 }
